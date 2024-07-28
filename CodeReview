@@ -1,3 +1,32 @@
+# 6083 가능한 모든 조합 구하기 by itertools
+
+# 방법1) 중첩 for문
+x,y,z = map(int, input().split())
+
+for i in range(0,x):
+    for j in range(0,y):
+        for k in range(0,z):
+            print(i,j,k)
+print(x*y*z)
+
+# 방법2) itertools.product
+import itertools
+
+x,y,z = map(int, input().split())
+
+    # 리스트 정의
+a = [i for i in range(0, x)]
+b = [i for i in range(0, y)]
+c = [i for i in range(0, z)]
+
+    # 가능한 모든 조합 생성 및 출력
+for combination in itertools.product(a, b, c):
+    print(combination)
+
+    # 가능한 조합의 개수
+print(x*y*z)
+
+
 # 6091 최소공배수 구하는 방법
 a,b,c = map(int, input().split())
 d = 1
