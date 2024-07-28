@@ -1,0 +1,30 @@
+# 6091 최소공배수 구하는 방법
+a,b,c = map(int, input().split())
+d = 1
+while d%a!=0 or d%b!=0 or d%c!=0 :
+    d += 1
+print(d)
+
+
+# 6098 개미 미로
+box = [list(map(int, input().split())) for i in range(10)]
+
+while (x<9) and (y<9) :
+    
+    if box[x][y] == 2:
+        box[x][y] = 9
+        break
+    
+    box[x][y] = 9
+
+    if box[x][y + 1] != 1:
+        y += 1  # 조건에 맞으면 오른쪽으로 이동
+    
+    elif box[x + 1][y] != 1:
+        x += 1  # 아래로 이동
+    
+    else : break # 더 이상 이동할 수 없으면 종료
+
+# 결과 출력
+for row in box:
+    print(" ".join(map(str, row)))
